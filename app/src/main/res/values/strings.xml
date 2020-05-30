@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Favfoods</string>
+    <string name="USER_ONBOARDED">USER_ONBOARDED</string>
+    <string name="PREFS_FILENAME">PREFS_FILENAME </string>
+    <string name="Welcome">Welcome to Favfoods.</string>
+    <string name="Start">Start</string>
+
+</resources>
