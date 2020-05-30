@@ -116,5 +116,16 @@
         app:layout_constraintTop_toBottomOf="@+id/home_menu_rolls"
         android:layout_marginRight="83dp" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_food"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_white_oval" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
