@@ -6,12 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import com.androar.favfoods.R
+import com.androar.favfoods.data.api.ApiHelper
+import com.androar.favfoods.data.api.RetrofitBuilder
 import com.androar.favfoods.data.model.Food
 import com.androar.favfoods.ui.adapter.FoodAdapter
+import com.androar.favfoods.ui.viewmodel.HomeViewModel
+import com.androar.favfoods.ui.viewmodel.ViewModelFactory
+import com.androar.favfoods.utils.Status
 
 /**
  * Home Fragment for Food Details
@@ -19,6 +27,7 @@ import com.androar.favfoods.ui.adapter.FoodAdapter
 class HomeFragment : Fragment(), View.OnClickListener {
 
     private lateinit var rootView : View
+    private lateinit var viewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,10 +35,37 @@ class HomeFragment : Fragment(), View.OnClickListener {
     ): View? {
         rootView = inflater.inflate(R.layout.fragment_home, container, false)
         initUI()
+        initViewModel()
         return rootView
     }
 
-    fun initUI() {
+    private fun initViewModel() {
+        viewModel = ViewModelProviders.of(this,
+            ViewModelFactory(ApiHelper(RetrofitBuilder.apiService))).
+            get(HomeViewModel::class.java)
+    }
+
+    private fun OGpopulateBurgerList() {
+        viewModel.getBurgers().observe(this, Observer {
+            it.let { resource ->
+                when (resource.status) {
+                    Status.SUCCESS -> {
+                        resource.data?.let {
+                                foods -> setAdapter(foods)
+                        }
+                    }
+                    Status.ERROR -> {
+                        Toast.makeText(context!!, it.message, Toast.LENGTH_LONG).show()
+                    }
+                    Status.LOADING -> {
+
+                    }
+                }
+            }
+        })
+    }
+
+        private fun initUI() {
         val animFadeIn = AnimationUtils.loadAnimation(context!!, R.anim.fade_in);
         rootView.findViewById<ConstraintLayout>(R.id.container_home).startAnimation(animFadeIn)
         rootView.findViewById<ImageView>(R.id.home_menu_burger).setOnClickListener(this)
@@ -77,7 +113,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
             R.id.home_menu_burger -> {
                 unselectOtherViews()
                 p0.isSelected = true
-                populateBurgerList()
+                OGpopulateBurgerList()
             }
             R.id.home_menu_pizza -> {
                 unselectOtherViews()
