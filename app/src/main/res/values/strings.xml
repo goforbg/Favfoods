@@ -3,6 +3,11 @@
     <string name="USER_ONBOARDED">USER_ONBOARDED</string>
     <string name="PREFS_FILENAME">PREFS_FILENAME </string>
     <string name="Welcome">Welcome to Favfoods.</string>
+
+    <string name="name">Bharadwaj Giridhar</string>
+    <string name="about">👨🏼‍💻 Android Engineer. 📈 Startup lover. ⬇️ Open Source Projects</string>
+
+
     <string name="Start">Start</string>
     <string name="find_your">FIND YOUR</string>
     <string name="favorite_foods">Favorite Foods</string>
@@ -15,6 +20,9 @@
     <string name="pair_burger1">Lodi Zinfadel,\nRussian River,\nSauvigion Blanc</string>
     <string name="recipe_burger2">American Cheese, Grilled White Onion,\nPickes,Fried Egg</string>
     <string name="pair_burger2">Gamay,\nVeneto,\nPinotGrigio</string>
+    <string name="recipe_burger3">Swiss Cheese, Thume,\nTobasco, Worcestrershire sauce\n,Avacado,RedOnion,\nTamato,Lettuce</string>
+    <string name="pair_burger3">Jura Trousseau,\nSwiss Fendant,\n(Chasselas)</string>
+
 
 
 </resources>

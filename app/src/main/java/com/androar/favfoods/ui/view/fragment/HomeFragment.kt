@@ -17,7 +17,6 @@ import com.androar.favfoods.data.api.ApiHelper
 import com.androar.favfoods.data.api.RetrofitBuilder
 import com.androar.favfoods.data.model.Food
 import com.androar.favfoods.ui.adapter.FoodAdapter
-import com.androar.favfoods.ui.view.activity.MainActivity
 import com.androar.favfoods.ui.viewmodel.CommunicatorViewModel
 import com.androar.favfoods.ui.viewmodel.HomeViewModel
 import com.androar.favfoods.ui.viewmodel.ViewModelFactory
@@ -51,7 +50,7 @@ class HomeFragment : Fragment(), View.OnClickListener, FoodAdapter.RecyclerViewC
             .get(CommunicatorViewModel::class.java)
     }
 
-    private fun OGpopulateBurgerList() {
+    private fun getBurgers() {
         viewModel.getBurgers().observe(this, Observer {
             it.let { resource ->
                 when (resource.status) {
@@ -77,6 +76,7 @@ class HomeFragment : Fragment(), View.OnClickListener, FoodAdapter.RecyclerViewC
         rootView.findViewById<ImageView>(R.id.home_menu_burger).setOnClickListener(this)
         rootView.findViewById<ImageView>(R.id.home_menu_pizza).setOnClickListener(this)
         rootView.findViewById<ImageView>(R.id.home_menu_rolls).setOnClickListener(this)
+        rootView.findViewById<ImageView>(R.id.menu).setOnClickListener(this)
     }
 
     private fun unselectOtherViews() {
@@ -85,20 +85,44 @@ class HomeFragment : Fragment(), View.OnClickListener, FoodAdapter.RecyclerViewC
         rootView.findViewById<ImageView>(R.id.home_menu_burger).isSelected = false
     }
 
-    private fun populatePizzaList() {
-        val foodList: ArrayList<Food> = arrayListOf()
-        foodList.add(Food("Chukka Pizza",""))
-        foodList.add(Food("Pizza Mama",""))
-        foodList.add(Food("Bulp Pizza",""))
-        setAdapter(foodList)
+    private fun getPizzas() {
+        viewModel.getPizzas().observe(this, Observer {
+            it.let { resource ->
+                when (resource.status) {
+                    Status.SUCCESS -> {
+                        resource.data?.let {
+                                foods -> setAdapter(foods)
+                        }
+                    }
+                    Status.ERROR -> {
+                        Toast.makeText(context!!, it.message, Toast.LENGTH_LONG).show()
+                    }
+                    Status.LOADING -> {
+
+                    }
+                }
+            }
+        })
     }
 
-    private fun populateRollsList() {
-        val foodList: ArrayList<Food> = arrayListOf()
-        foodList.add(Food("Rolls 1",""))
-        foodList.add(Food("Rolls 2",""))
-        foodList.add(Food("3 Rolls",""))
-        setAdapter(foodList)
+    private fun getRolls() {
+        viewModel.getRolls().observe(this, Observer {
+            it.let { resource ->
+                when (resource.status) {
+                    Status.SUCCESS -> {
+                        resource.data?.let {
+                                foods -> setAdapter(foods)
+                        }
+                    }
+                    Status.ERROR -> {
+                        Toast.makeText(context!!, it.message, Toast.LENGTH_LONG).show()
+                    }
+                    Status.LOADING -> {
+
+                    }
+                }
+            }
+        })
     }
 
 
@@ -113,17 +137,21 @@ class HomeFragment : Fragment(), View.OnClickListener, FoodAdapter.RecyclerViewC
             R.id.home_menu_burger -> {
                 unselectOtherViews()
                 p0.isSelected = true
-                OGpopulateBurgerList()
+                getBurgers()
             }
             R.id.home_menu_pizza -> {
                 unselectOtherViews()
                 p0.isSelected = true
-                populatePizzaList()
+                getPizzas()
             }
             R.id.home_menu_rolls -> {
                 unselectOtherViews()
                 p0.isSelected = true
-                populateRollsList()
+                getRolls()
+            }
+            R.id.menu -> {
+                val aboutBottomSheet = AboutFragment()
+                aboutBottomSheet.show(activity!!.supportFragmentManager, "AboutBottomSheet")
             }
         }
     }
