@@ -17,6 +17,8 @@ import com.androar.favfoods.data.api.ApiHelper
 import com.androar.favfoods.data.api.RetrofitBuilder
 import com.androar.favfoods.data.model.Food
 import com.androar.favfoods.ui.adapter.FoodAdapter
+import com.androar.favfoods.ui.view.activity.MainActivity
+import com.androar.favfoods.ui.viewmodel.CommunicatorViewModel
 import com.androar.favfoods.ui.viewmodel.HomeViewModel
 import com.androar.favfoods.ui.viewmodel.ViewModelFactory
 import com.androar.favfoods.utils.Status
@@ -24,10 +26,11 @@ import com.androar.favfoods.utils.Status
 /**
  * Home Fragment for Food Details
  */
-class HomeFragment : Fragment(), View.OnClickListener {
+class HomeFragment : Fragment(), View.OnClickListener, FoodAdapter.RecyclerViewCallback {
 
     private lateinit var rootView : View
     private lateinit var viewModel: HomeViewModel
+    private lateinit var communicatorViewModel: CommunicatorViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +46,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
         viewModel = ViewModelProviders.of(this,
             ViewModelFactory(ApiHelper(RetrofitBuilder.apiService))).
             get(HomeViewModel::class.java)
+
+        communicatorViewModel= ViewModelProviders.of(activity!!)
+            .get(CommunicatorViewModel::class.java)
     }
 
     private fun OGpopulateBurgerList() {
@@ -79,14 +85,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
         rootView.findViewById<ImageView>(R.id.home_menu_burger).isSelected = false
     }
 
-    private fun populateBurgerList() {
-        val foodList: ArrayList<Food> = arrayListOf()
-        foodList.add(Food("Beef Burger",""))
-        foodList.add(Food("Sappa Mame",""))
-        foodList.add(Food("Beef Burger",""))
-        setAdapter(foodList)
-    }
-
     private fun populatePizzaList() {
         val foodList: ArrayList<Food> = arrayListOf()
         foodList.add(Food("Chukka Pizza",""))
@@ -105,7 +103,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
 
     private fun setAdapter(foods: ArrayList<Food>) {
-        rootView.findViewById<RecyclerView>(R.id.rv_food).adapter = FoodAdapter(foods)
+        val adapter = FoodAdapter(foods)
+        rootView.findViewById<RecyclerView>(R.id.rv_food).adapter = adapter
+        adapter.setOnCallbackListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -126,6 +126,12 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 populateRollsList()
             }
         }
+    }
+
+    override fun onRecycleViewItemClick(food: Food, position: Int) {
+        communicatorViewModel.setFood(food)
+        val foodBottomSheet = FoodBottomSheet()
+        foodBottomSheet.show(activity!!.supportFragmentManager, "FoodBottomSheet")
     }
 
 }

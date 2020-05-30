@@ -10,5 +10,11 @@
     <string name="Pizza">Pizza</string>
     <string name="Rolls">Rolls</string>
     <string name="Soups">Soups</string>
+    <string name="pairs_with">Pairs with:</string>
+    <string name="recipe_burger1">American Cheese, Thousand Island, Red Onion,\nTomato, Lettuce</string>
+    <string name="pair_burger1">Lodi Zinfadel,\nRussian River,\nSauvigion Blanc</string>
+    <string name="recipe_burger2">American Cheese, Grilled White Onion,\nPickes,Fried Egg</string>
+    <string name="pair_burger2">Gamay,\nVeneto,\nPinotGrigio</string>
+
 
 </resources>

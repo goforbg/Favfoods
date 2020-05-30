@@ -31,4 +31,6 @@ class FoodViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
             .into(mFoodImage!!)
     }
 
+    
+
 }
