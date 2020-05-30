@@ -1,13 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/almostWhite"
     tools:context=".ui.view.fragment.HomeFragment">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/USER_ONBOARDED" />
+        android:id="@+id/home_find_your"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/find_your"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/home_favorite_foods"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/favorite_foods"
+        android:textColor="@android:color/black"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_find_your" />
+    
+    <ImageView
+        android:id="@+id/home_white_oval"
+        android:layout_width="match_parent"
+        android:layout_height="153dp"
+        android:background="@drawable/rounded_button_white_30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_favorite_foods"
+        android:layout_marginTop="30dp"/>
+
+    <ImageView
+        android:id="@+id/home_menu_burger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_menu_burger_selected"
+        app:layout_constraintBottom_toBottomOf="@+id/home_white_oval"
+        app:layout_constraintStart_toStartOf="@+id/home_white_oval"
+        app:layout_constraintTop_toTopOf="@+id/home_white_oval"
+        android:layout_marginLeft="78dp"
+        android:layout_marginStart="78dp" />
+
+    <TextView
+        android:id="@+id/menu_text_burger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="@string/Burger"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/home_white_oval"
+        app:layout_constraintTop_toBottomOf="@+id/home_menu_burger"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="70dp"/>
+
+    <ImageView
+        android:id="@+id/home_menu_pizza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_menu_pizza_selected"
+        app:layout_constraintBottom_toBottomOf="@+id/home_white_oval"
+        app:layout_constraintStart_toEndOf="@+id/home_menu_burger"
+        app:layout_constraintTop_toTopOf="@+id/home_white_oval"
+        android:layout_marginLeft="58dp"
+        android:layout_marginStart="58dp" />
+
+    <TextView
+        android:id="@+id/menu_text_pizza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="@string/Pizza"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/home_menu_burger"
+        app:layout_constraintTop_toBottomOf="@+id/home_menu_pizza"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="50dp"/>
+
+    <ImageView
+        android:id="@+id/home_menu_rolls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_menu_rolls_selected"
+        app:layout_constraintBottom_toBottomOf="@+id/home_white_oval"
+        app:layout_constraintStart_toEndOf="@+id/home_menu_pizza"
+        app:layout_constraintTop_toTopOf="@+id/home_white_oval"
+        android:layout_marginLeft="58dp"
+        android:layout_marginStart="58dp" />
+
+    <TextView
+        android:id="@+id/menu_text_rolls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="@string/Rolls"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/home_menu_pizza"
+        app:layout_constraintTop_toBottomOf="@+id/home_menu_rolls"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="50dp"/>
+
+    <ImageView
+        android:id="@+id/home_menu_soups"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_menu_soup_selected"
+        app:layout_constraintBottom_toBottomOf="@+id/home_white_oval"
+        app:layout_constraintStart_toEndOf="@+id/home_menu_rolls"
+        app:layout_constraintTop_toTopOf="@+id/home_white_oval"
+        android:layout_marginLeft="58dp"
+        android:layout_marginStart="58dp" />
+
+    <TextView
+        android:id="@+id/menu_text_soups"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="@string/Rolls"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/home_menu_rolls"
+        app:layout_constraintTop_toBottomOf="@+id/home_menu_soups"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="50dp"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

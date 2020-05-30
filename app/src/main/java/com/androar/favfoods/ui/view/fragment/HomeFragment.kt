@@ -17,7 +17,13 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_home, container, false)
+        initUI(rootView)
+        return rootView
+    }
+
+    fun initUI(view: View) {
+
     }
 
 }

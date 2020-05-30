@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showFragment(newFragment: Fragment) {
+    fun showFragment(newFragment: Fragment) {
         supportFragmentManager.beginTransaction()
                 .replace(R.id.container_main, newFragment)
                 .commit()

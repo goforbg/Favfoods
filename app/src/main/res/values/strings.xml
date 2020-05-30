@@ -4,5 +4,11 @@
     <string name="PREFS_FILENAME">PREFS_FILENAME </string>
     <string name="Welcome">Welcome to Favfoods.</string>
     <string name="Start">Start</string>
+    <string name="find_your">FIND YOUR</string>
+    <string name="favorite_foods">Favorite Foods</string>
+    <string name="Burger">Burger</string>
+    <string name="Pizza">Pizza</string>
+    <string name="Rolls">Rolls</string>
+    <string name="Soups">Soups</string>
 
 </resources>
