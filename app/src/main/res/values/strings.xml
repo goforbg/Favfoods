@@ -5,7 +5,8 @@
     <string name="Welcome">Welcome to Favfoods.</string>
 
     <string name="name">Bharadwaj Giridhar</string>
-    <string name="about">👨🏼‍💻 Android Engineer. 📈 Startup lover. ⬇️ Open Source Projects</string>
+    <string name="tech_stack">Tech Used: </string>
+    <string name="stack">Kotlin Couroutines, MVVM, Retrofit,\nGlide, Inheritance, NullSafety,\nLambdas, higher-order functions</string>
 
 
     <string name="Start">Start</string>
@@ -16,13 +17,29 @@
     <string name="Rolls">Rolls</string>
     <string name="Soups">Soups</string>
     <string name="pairs_with">Pairs with:</string>
+
     <string name="recipe_burger1">American Cheese, Thousand Island, Red Onion,\nTomato, Lettuce</string>
     <string name="pair_burger1">Lodi Zinfadel,\nRussian River,\nSauvigion Blanc</string>
     <string name="recipe_burger2">American Cheese, Grilled White Onion,\nPickes,Fried Egg</string>
     <string name="pair_burger2">Gamay,\nVeneto,\nPinotGrigio</string>
-    <string name="recipe_burger3">Swiss Cheese, Thume,\nTobasco, Worcestrershire sauce\n,Avacado,RedOnion,\nTamato,Lettuce</string>
+    <string name="recipe_burger3">Swiss Cheese, Thume,\nTobasco, Worcestrershire sauce,\nAvacado,RedOnion,\nTamato,Lettuce</string>
     <string name="pair_burger3">Jura Trousseau,\nSwiss Fendant,\n(Chasselas)</string>
 
+    <string name="recipe_pizza1">Pepperoni, cheese, spinach,\nsausage—even pineapple!</string>
+    <string name="pair_pizza1">Lemon Garlic Roasted Broccoli Salad,\nKale Salad.</string>
+    <string name="recipe_pizza2">Unroll dough on work surface. Using rolling pin,\nroll dough to 20x15-inch rectangle.\nCut into 12 (5-inch) squares. \nWrap 1 dough square around each cup and press.</string>
+    <string name="pair_pizza2">Spinach Artichoke Dip,\nCreamy Dilled Red Potato Salad.</string>
+    <string name="recipe_pizza3">Bread dough,cheese (typically mozzarella),\nmeat or vegetables</string>
+    <string name="pair_pizza3">Lemon Garlic Roasted Broccoli Salad,\nWinger Sticky Fingers.</string>
+
+    <string name="recipe_rolls1">Raw tuna sashimi rolls,\nCucumber rolls!</string>
+    <string name="pair_rolls1">Eggplant pickled with shiso,\nTakuan</string>
+
+    <string name="recipe_rolls2">Fish eggs, larger than tobiko\nLots of salt!</string>
+    <string name="pair_rolls2">Artichoke Dip,\nSoy sauce.</string>
+
+    <string name="recipe_rolls3"> A single large, cone-shaped piece of seaweed on the outside,\nFish or vegetables on the inside</string>
+    <string name="pair_rolls3">Eat in one shot! </string>
 
 
 </resources>

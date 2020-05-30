@@ -8,4 +8,7 @@ data class Food(
     @SerializedName("name")
     val name: String,
     @SerializedName("thumbnail")
-    val thumbnail: String)
+    val thumbnail: String,
+    @SerializedName("yid")
+    val yid: String
+    )
