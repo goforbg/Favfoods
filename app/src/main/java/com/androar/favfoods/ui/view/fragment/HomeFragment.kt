@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import com.androar.favfoods.R
@@ -42,7 +43,7 @@ class HomeFragment : Fragment(), View.OnClickListener, FoodAdapter.RecyclerViewC
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProviders.of(this,
+        viewModel = ViewModelProvider(this,
             ViewModelFactory(ApiHelper(RetrofitBuilder.apiService))).
             get(HomeViewModel::class.java)
 
